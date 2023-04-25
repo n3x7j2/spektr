@@ -25,6 +25,7 @@
     "@types/lodash": "4.14.191"
   },
   "dependencies": {
+    "@mui/lab": "^5.0.0-alpha.118",
     "@spektr/common": "workspace:*",
     "@spektr/dnd": "workspace:*",
     "clsx": "1.2.1",
@@ -36,7 +37,6 @@
   "peerDependencies": {
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
-    "@mui/lab": "^5.0.0-alpha.118",
     "@mui/material": "^5.11.0",
     "@mui/system": "^5.11.0",
     "react": "^17.0.2 || ^18.0.0",
