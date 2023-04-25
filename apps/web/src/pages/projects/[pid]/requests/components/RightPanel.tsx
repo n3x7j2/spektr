@@ -8,7 +8,7 @@ const RightPanel = (props: RightComponentProps) => {
   return (
     <RightPanelLayout
       slots={{
-        InfoComponent: () => <>Info</>,
+        InfoComponent: <></>,
       }}
     />
   );
