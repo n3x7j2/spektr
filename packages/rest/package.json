@@ -1,0 +1,33 @@
+{
+  "name": "@spektr/rest",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "prebuild": "tsx ./src/swagger/index.ts",
+    "build": "tsup --dts",
+    "predev": "tsx ./src/swagger/index.ts",
+    "dev": "tsup --dts --watch",
+    "clean": "rimraf dist .turbo",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "axios": "1.2.1",
+    "form-data": "4.0.0",
+    "openapi-typescript-codegen": "0.23.0",
+    "tsx": "3.12.1"
+  }
+}

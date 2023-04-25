@@ -1,0 +1,32 @@
+{
+  "name": "@spektr/dnd",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup --dts",
+    "dev": "tsup --dts --watch",
+    "clean": "rimraf dist .turbo",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@dnd-kit/core": "6.0.7",
+    "@dnd-kit/modifiers": "6.0.1",
+    "@dnd-kit/sortable": "7.0.2",
+    "@dnd-kit/utilities": "3.2.1"
+  }
+}

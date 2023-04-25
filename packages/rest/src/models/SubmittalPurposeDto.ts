@@ -1,0 +1,11 @@
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+export type SubmittalPurposeDto = {
+  purpose: string;
+  description?: string | null;
+  id?: string;
+  creationTime?: string;
+  lastModificationTime?: string | null;
+};

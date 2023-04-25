@@ -1,0 +1,40 @@
+{
+  "name": "@spektr/modals",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup --dts",
+    "dev": "tsup --dts --watch",
+    "clean": "rimraf dist .turbo",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@mui/icons-material": "5.11.0",
+    "@mui/material": "5.11.10",
+    "@mui/system": "5.11.9",
+    "@spektr/common": "workspace:*",
+    "clsx": "1.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "peerDependencies": {
+    "@mui/material": "^5.11.0",
+    "@mui/system": "^5.11.0",
+    "react": "^17.0.2 || ^18.0.0",
+    "react-dom": "^17.0.2 || ^18.0.0"
+  }
+}

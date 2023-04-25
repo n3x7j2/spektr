@@ -1,0 +1,25 @@
+{
+  "recommendations": [
+    "burkeholland.simple-react-snippets",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "codezombiech.gitignore",
+    "dbaeumer.vscode-eslint",
+    "donjayamanne.githistory",
+    "dsznajder.es7-react-js-snippets",
+    "eamodio.gitlens",
+    "ecmel.vscode-html-css",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "huizhou.githd",
+    "k--kato.intellij-idea-keybindings",
+    "leizongmin.node-module-intellisense",
+    "mhutchie.git-graph",
+    "michelemelluso.gitignore",
+    "mikestead.dotenv",
+    "redhat.vscode-yaml",
+    "vscode-icons-team.vscode-icons",
+    "wix.vscode-import-cost"
+  ]
+}

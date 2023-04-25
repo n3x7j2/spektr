@@ -1,0 +1,50 @@
+{
+  "name": "@spektr/data-grid",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup --dts",
+    "dev": "tsup --dts --watch",
+    "clean": "rimraf dist .turbo",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/file-saver": "2.0.5",
+    "@types/lodash": "4.14.191",
+    "@types/uuid": "9.0.0"
+  },
+  "dependencies": {
+    "@devexpress/dx-react-core": "4.0.2",
+    "@devexpress/dx-react-grid": "4.0.2",
+    "@devexpress/dx-react-grid-export": "4.0.2",
+    "@devexpress/dx-react-grid-material-ui": "4.0.2",
+    "@spektr/common": "workspace:*",
+    "@spektr/dnd": "workspace:*",
+    "clsx": "1.2.1",
+    "file-saver": "2.0.5",
+    "lodash": "4.17.21",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "uuid": "9.0.0",
+    "yup": "0.32.11"
+  },
+  "peerDependencies": {
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.0",
+    "react": "^17.0.2 || ^18.0.0",
+    "react-dom": "^17.0.2 || ^18.0.0"
+  }
+}

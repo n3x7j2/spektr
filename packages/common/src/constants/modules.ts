@@ -1,0 +1,15 @@
+export const Modules = {
+  Dashboard: 'Dashboard',
+  SalesEstimating: 'SalesEstimating',
+  Projects: 'Projects',
+  Production: 'Production',
+  Inventory: 'Inventory',
+  Purchasing: 'Purchasing',
+  Shipping: 'Shipping',
+  ProjectsManagement: 'ProjectsManagement',
+  UsersManagement: 'UsersManagement',
+  FilesManagement: 'FilesManagement',
+  ToolsManagement: 'ToolsManagement',
+  SystemManagement: 'SystemManagement',
+  DataManagement: 'DataManagement',
+};
