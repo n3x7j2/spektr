@@ -21,11 +21,9 @@
     "lint": "eslint src --ext .ts,.tsx",
     "typecheck": "tsc --noEmit"
   },
-  "devDependencies": {
-    "@types/lodash": "4.14.194"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "@mui/lab": "5.0.0-alpha.118",
+    "@mui/lab": "5.0.0-alpha.129",
     "@spektr/common": "workspace:*",
     "@spektr/dnd": "workspace:*",
     "react-virtuoso": "4.3.5"
@@ -33,11 +31,11 @@
   "peerDependencies": {
     "@emotion/styled": "^11.10.8",
     "@mui/icons-material": "^5.11.16",
-    "@mui/material": "^5.12.2",
-    "@mui/system": "^5.12.1",
+    "@mui/material": "^5.12.3",
+    "@mui/system": "^5.12.3",
     "clsx": "^1.2.1",
     "lodash": "^4.17.21",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^17.0.2 || ^18.0.0",
+    "react-dom": "^17.0.2 || ^18.0.0"
   }
 }

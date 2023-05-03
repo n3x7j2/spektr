@@ -22,9 +22,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/file-saver": "2.0.5",
-    "@types/lodash": "4.14.194",
-    "@types/uuid": "9.0.1"
+    "@types/file-saver": "2.0.5"
   },
   "dependencies": {
     "@devexpress/dx-react-core": "4.0.3",
@@ -39,12 +37,12 @@
   "peerDependencies": {
     "@emotion/styled": "^11.10.8",
     "@mui/icons-material": "^5.11.16",
-    "@mui/material": "^5.12.2",
-    "@mui/system": "^5.12.1",
+    "@mui/material": "^5.12.3",
+    "@mui/system": "^5.12.3",
     "clsx": "^1.2.1",
     "lodash": "^4.17.21",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^17.0.2 || ^18.0.0",
+    "react-dom": "^17.0.2 || ^18.0.0",
     "yup": "^1.1.1"
   }
 }
