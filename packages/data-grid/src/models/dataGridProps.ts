@@ -36,7 +36,7 @@ type EditingColumnDef = {
 };
 
 type SummaryColumnDef = {
-  type?: SummaryType;
+  summaryType?: SummaryType;
 };
 
 export type ColumnDef = Column &
@@ -60,6 +60,10 @@ export type DataGridProps = {
   searchingEnabled?: boolean;
   resizingEnabled?: boolean;
   columnReorderingEnabled?: boolean;
+  treeViewEnabled?: boolean;
+  treeViewColumn?: string;
+  treeViewExpandedRows?: RowId[];
+  onTreeViewExpandedRows?: (rowIds: RowId[]) => void;
   dragType?: string;
   overlayFields?: string[];
   editingCells?: EditingCell[];

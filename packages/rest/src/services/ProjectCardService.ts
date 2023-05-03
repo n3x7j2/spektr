@@ -94,12 +94,12 @@ phaseId: string,
   }
 
   /**
-   * Get Part Type Code Categories by Phase Id
-   * SpektrERP.Controllers.ProjectCardController.GetPartTypeCodeCategoriesByPhaseId (SpektrERP.HttpApi)
+   * Get Product Categories by Phase Id
+   * SpektrERP.Controllers.ProjectCardController.GetProductCategoriesByPhaseId (SpektrERP.HttpApi)
    * @returns PhaseItemSystemInfoDto Success
    * @throws ApiError
    */
-  public projectCardGetPartTypeCodeCategoriesByPhaseId({
+  public projectCardGetProductCategoriesByPhaseId({
 phaseId,
 }: {
 phaseId: string,

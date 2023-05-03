@@ -2,5 +2,4 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type MaterialCreateDto = {
-};
+export type MaterialCreateDto = Record<string, any>;

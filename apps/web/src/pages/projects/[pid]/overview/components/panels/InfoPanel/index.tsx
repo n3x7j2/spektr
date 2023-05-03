@@ -81,11 +81,13 @@ const InfoPanel = () => {
     }
 
     if (!isValid) {
+      notifications.clean();
       notifications.show({
         severity: 'error',
         variant: 'filled',
         message: 'Please fix all errors before trying to save',
       });
+      throw new Error('Please fix all errors before trying to save');
     } else {
       await updateProjectAsync({ id: projectId, body: requestBody });
     }
@@ -95,7 +97,7 @@ const InfoPanel = () => {
     saveForm: async (event) => {
       try {
         await handleSubmit();
-        setSavingEnabled(() => false);
+        setSavingEnabled(false);
         event?.callback?.();
       } catch (err) {}
     },

@@ -22,7 +22,7 @@ const ActionsMenu = () => {
         id="account-menu"
         sx={{
           '& .MuiPaper-root': {
-            marginTop: '25px',
+            marginTop: '10px',
             minWidth: 200,
 
             '& .MuiMenuItem-root': {

@@ -4,14 +4,14 @@ import { map } from 'lodash';
 
 import { useRestClient } from '~/hooks/useRestClient';
 
-export const useLookupTeams = () => {
+export const useGetLookupTeams = () => {
   const client = useRestClient();
 
   return useQuery({
     queryKey: [QueryKeys.GetLookupTeams],
     queryFn: async () => {
       const result = await client.team.teamGetListDropDownTeam({});
-      return map(result, (s) => ({ value: s.value || '', text: s.text || '' })) || [];
+      return map(result || [], (s) => ({ value: s.value || '', text: s.text || '' }));
     },
   });
 };

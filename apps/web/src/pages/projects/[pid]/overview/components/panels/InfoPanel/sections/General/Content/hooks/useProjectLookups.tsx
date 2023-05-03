@@ -1,19 +1,19 @@
 import {
-  useLookupEmployees,
-  useLookupProjectScopes,
-  useLookupProjectStages,
-  useLookupProjectStatus,
-  useLookupProjectTypes,
-  useLookupTeams,
+  useGetLookupEmployees,
+  useGetLookupProjectScopes,
+  useGetLookupProjectStages,
+  useGetLookupProjectStatus,
+  useGetLookupProjectTypes,
+  useGetLookupTeams,
 } from '~/hooks/api';
 
 export const useProjectLookups = () => {
-  const { data: projectScopes = [], isLoading: isLoadingProjectScopes } = useLookupProjectScopes();
-  const { data: projectStages = [], isLoading: isLoadingProjectStages } = useLookupProjectStages();
-  const { data: projectStatus = [], isLoading: isLoadingProjectStatus } = useLookupProjectStatus();
-  const { data: projectTypes = [], isLoading: isLoadingProjectTypes } = useLookupProjectTypes();
-  const { data: employees = [], isLoading: isLoadingEmployees } = useLookupEmployees();
-  const { data: teams = [], isLoading: isLoadingTeams } = useLookupTeams();
+  const { data: projectScopes = [], isLoading: isLoadingProjectScopes } = useGetLookupProjectScopes();
+  const { data: projectStages = [], isLoading: isLoadingProjectStages } = useGetLookupProjectStages();
+  const { data: projectStatus = [], isLoading: isLoadingProjectStatus } = useGetLookupProjectStatus();
+  const { data: projectTypes = [], isLoading: isLoadingProjectTypes } = useGetLookupProjectTypes();
+  const { data: employees = [], isLoading: isLoadingEmployees } = useGetLookupEmployees();
+  const { data: teams = [], isLoading: isLoadingTeams } = useGetLookupTeams();
 
   return {
     projectScopes,

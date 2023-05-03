@@ -22,22 +22,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mui/icons-material": "5.11.0",
-    "@mui/material": "5.11.10",
-    "@mui/system": "5.11.9",
     "@spektr/common": "workspace:*",
-    "clsx": "1.2.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
     "react-transition-group": "4.4.5"
-  },
-  "peerDependencies": {
-    "@mui/material": "^5.11.0",
-    "@mui/system": "^5.11.0",
-    "react": "^17.0.2 || ^18.0.0",
-    "react-dom": "^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
     "@types/react-transition-group": "4.4.5"
+  },
+  "peerDependencies": {
+    "@mui/material": "^5.12.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

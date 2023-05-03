@@ -1,6 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { CloneProjectSystemDto } from '../models/CloneProjectSystemDto';
 import type { PagedResultDtoOfProjectSystemDto } from '../models/PagedResultDtoOfProjectSystemDto';
 import type { ProjectSystemCloneDto } from '../models/ProjectSystemCloneDto';
 import type { ProjectSystemCreateDto } from '../models/ProjectSystemCreateDto';
@@ -155,6 +156,25 @@ id: string,
       path: {
         'id': id,
       },
+    });
+  }
+
+  /**
+   * Clone Project System
+   * SpektrERP.Controllers.ProjectSystemController.CloneProjectSystem (SpektrERP.HttpApi)
+   * @returns string Success
+   * @throws ApiError
+   */
+  public projectSystemCloneProjectSystem({
+requestBody,
+}: {
+requestBody?: CloneProjectSystemDto,
+}): CancelablePromise<Record<string, string>> {
+    return this.httpRequest.request({
+      method: 'POST',
+      url: '/api/project-systems/clone-to-project',
+      body: requestBody,
+      mediaType: 'application/json',
     });
   }
 

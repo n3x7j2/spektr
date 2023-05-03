@@ -86,11 +86,13 @@ id: string,
    */
   public employeeStatusGetList({
 status,
+isActive,
 sorting,
 skipCount,
 maxResultCount,
 }: {
 status?: string,
+isActive?: boolean,
 sorting?: string,
 skipCount?: number,
 maxResultCount?: number,
@@ -100,6 +102,7 @@ maxResultCount?: number,
       url: '/api/employee-statuses',
       query: {
         'Status': status,
+        'IsActive': isActive,
         'Sorting': sorting,
         'SkipCount': skipCount,
         'MaxResultCount': maxResultCount,

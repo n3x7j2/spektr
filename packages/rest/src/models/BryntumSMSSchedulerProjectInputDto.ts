@@ -2,5 +2,4 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type BryntumSMSSchedulerProjectInputDto = {
-};
+export type BryntumSMSSchedulerProjectInputDto = Record<string, any>;

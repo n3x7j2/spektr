@@ -75,10 +75,10 @@ export const useColumns = (params: {
   const defaultSummary = useMemo(
     () =>
       map(
-        filter(columns, (c) => !isNil(c.type)),
+        filter(columns, (c) => !isNil(c.summaryType)),
         (c) => ({
           columnName: c.name,
-          type: (c.type || 'sum') as SummaryType,
+          type: (c.summaryType || 'sum') as SummaryType,
         }),
       ),
     [columns],

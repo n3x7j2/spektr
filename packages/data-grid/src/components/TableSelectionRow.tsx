@@ -8,9 +8,7 @@ import { memo } from 'react';
 
 import { useDataGrid } from '../hooks/useDataGrid';
 
-const TableSelectionRow = memo(function TableSelectionRow(
-  props: TableSelection.RowProps,
-) {
+const TableSelectionRow = memo(function TableSelectionRow(props: TableSelection.RowProps) {
   const {
     tableRow: { rowId, row },
     onToggle,
@@ -19,8 +17,7 @@ const TableSelectionRow = memo(function TableSelectionRow(
     ...restProps
   } = props;
 
-  const { dragType, rowReorderingEnabled, selectedRows, setDragHandleProps } =
-    useDataGrid();
+  const { dragType, rowReorderingEnabled, selectedRows, setDragHandleProps } = useDataGrid();
 
   const { setNodeRef: setDroppableNodeRef, isOver } = useDroppable({
     id: rowId!,

@@ -11,7 +11,7 @@ export const useGetLookupPartTypeCodeCategories = () => {
     queryKey: [QueryKeys.GetLookupPartTypeCodeCategories],
     queryFn: async () => {
       const result = await client.partTypeCodeCategory.partTypeCodeCategoryGetListDropDownPartTypeCodeCategory({});
-      return map(result, (s) => ({ value: s.value || '', text: s.text || '' })) || [];
+      return map(result || [], (s) => ({ value: s.value || '', text: s.text || '' }));
     },
   });
 };

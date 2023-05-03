@@ -53,7 +53,7 @@ const defaultColumns: ColumnDef[] = [
     sortingEnabled: true,
     editingEnabled: true,
     validationRules,
-    type: 'sum',
+    summaryType: 'sum',
     align: 'right',
   },
   {
@@ -63,7 +63,7 @@ const defaultColumns: ColumnDef[] = [
     sortingEnabled: true,
     editingEnabled: true,
     validationRules,
-    type: 'sum',
+    summaryType: 'sum',
     align: 'right',
   },
 ];
@@ -126,6 +126,7 @@ const Content: ForwardRefRenderFunction<FormHandle, {}> = (props, ref) => {
     return () => {
       setSelectedRows([]);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChange = ({ changed }: ChangeSet) => {

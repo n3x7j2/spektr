@@ -3,13 +3,19 @@ import { styled } from '@mui/material';
 
 const StyledTable = styled(VirtualTable.Table)(({ theme }) => ({
   '&': {
+    '.MuiTableBody-root': {
+      '.MuiTableRow-root': {
+        backgroundColor: '#fff',
+
+        '&:hover': {
+          backgroundColor: '#f1f3f4',
+          borderRadius: theme.spacing(1),
+        },
+      },
+    },
+
     '.MuiTableRow-root': {
       backgroundColor: '#fff',
-
-      '&:hover': {
-        backgroundColor: '#f1f3f4',
-        borderRadius: theme.spacing(1),
-      },
 
       '&.TableSelectRow-selected': {
         backgroundColor: '#f1f3f4',
@@ -89,6 +95,14 @@ const StyledTable = styled(VirtualTable.Table)(({ theme }) => ({
         },
 
         '.TableSelectCell-checkbox': {
+          padding: 0,
+        },
+
+        '.TableTreeCheckbox-checkbox': {
+          padding: 0,
+        },
+
+        '.TableTreeExpandButton-button': {
           padding: 0,
         },
       },

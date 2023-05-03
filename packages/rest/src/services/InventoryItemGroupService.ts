@@ -7,6 +7,7 @@ import type { InventoryDataByRuleDto } from '../models/InventoryDataByRuleDto';
 import type { InventoryItemGroupCreateDto } from '../models/InventoryItemGroupCreateDto';
 import type { InventoryItemGroupDropDownDto } from '../models/InventoryItemGroupDropDownDto';
 import type { InventoryItemGroupDto } from '../models/InventoryItemGroupDto';
+import type { InventoryItemGroupStatus } from '../models/InventoryItemGroupStatus';
 import type { InventoryItemGroupUpdateDto } from '../models/InventoryItemGroupUpdateDto';
 import type { PagedResultDtoOfInventoryItemGroupDto } from '../models/PagedResultDtoOfInventoryItemGroupDto';
 
@@ -172,12 +173,14 @@ projectId,
 inventorySubCategoryId,
 isMainBatchNumber,
 isService,
+status,
 searchKey,
 }: {
 projectId?: string,
 inventorySubCategoryId?: string,
 isMainBatchNumber?: boolean,
 isService?: boolean,
+status?: InventoryItemGroupStatus,
 searchKey?: string,
 }): CancelablePromise<Array<InventoryItemGroupDropDownDto>> {
     return this.httpRequest.request({
@@ -188,6 +191,7 @@ searchKey?: string,
         'InventorySubCategoryId': inventorySubCategoryId,
         'IsMainBatchNumber': isMainBatchNumber,
         'IsService': isService,
+        'Status': status,
         'SearchKey': searchKey,
       },
     });

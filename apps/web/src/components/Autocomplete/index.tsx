@@ -69,9 +69,10 @@ const Autocomplete = styled((props: AutocompleteProps) => {
         <TextField
           {...params}
           inputRef={inputRef}
-          InputProps={{ ...params.InputProps, readOnly }}
+          InputProps={{ ...params.InputProps }}
           error={error}
           label={label}
+          readOnly={readOnly}
           helperText={helperText}
           placeholder={placeholder}
         />

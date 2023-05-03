@@ -1,4 +1,5 @@
 import {
+  CustomTreeData,
   DataTypeProvider,
   EditingState,
   FilteringState,
@@ -13,6 +14,7 @@ import {
   SelectionState,
   SortingState,
   SummaryState,
+  TreeDataState,
 } from '@devexpress/dx-react-grid';
 import { GridExporter } from '@devexpress/dx-react-grid-export';
 import {
@@ -29,16 +31,18 @@ import {
   TableInlineCellEditing,
   TableSelection,
   TableSummaryRow,
+  TableTreeColumn,
   Toolbar,
   VirtualTable,
 } from '@devexpress/dx-react-grid-material-ui';
 import { DragTypes, DropActions } from '@spektr/common';
 import { arrayMove, DragEndEvent, DragOverlay, useDndMonitor } from '@spektr/dnd';
 import saveAs from 'file-saver';
-import { differenceWith, findIndex, first } from 'lodash';
+import { differenceWith, filter, findIndex, first, includes, uniq, xor } from 'lodash';
 import { forwardRef, useCallback, useMemo, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
+import { findChildIds, findParentIds, getChildRows } from '../helpers/treeUtils';
 import { useColumns } from '../hooks/useColumns';
 import { DataGridProps } from '../models/dataGridProps';
 import DataGridProvider from './DataGridProvider';
@@ -56,6 +60,9 @@ const DataGrid = forwardRef<any, DataGridProps>(function DataGrid(props, ref: an
     searchingEnabled = false,
     resizingEnabled = false,
     columnReorderingEnabled = false,
+    treeViewEnabled = false,
+    treeViewColumn,
+    treeViewExpandedRows = [],
     dragType = DragTypes.TableRow,
     overlayFields = [],
     editingCells,
@@ -70,7 +77,12 @@ const DataGrid = forwardRef<any, DataGridProps>(function DataGrid(props, ref: an
     onCommitChanges,
     onRowOrderChange,
     onRowsSelect,
+    onTreeViewExpandedRows,
   } = props;
+
+  if (treeViewEnabled && !treeViewColumn) {
+    throw new Error('treeViewColumn is required if treeViewEnabled = true');
+  }
 
   const columns = rowReorderingEnabled ? [{ name: 'drag', title: ' ', width: 40 }, ...defaultColumns] : defaultColumns;
 
@@ -150,11 +162,32 @@ const DataGrid = forwardRef<any, DataGridProps>(function DataGrid(props, ref: an
           const selectedRowId = first(differenceWith(rowIds, selectedRowIds));
           onRowsSelect(selectedRowId ? [selectedRowId] : selectedRowIds);
         } else {
+          if (treeViewEnabled && rowIds.length !== 0 && rowIds.length !== rows.length) {
+            const changedRowIds = xor(rowIds, selectedRowIds);
+            if (changedRowIds.length > 0) {
+              const changedRowId = changedRowIds[0];
+              if (rowIds.length > selectedRowIds.length) {
+                onRowsSelect(
+                  uniq([
+                    ...selectedRowIds,
+                    ...findParentIds(rows, changedRowId),
+                    changedRowId,
+                    ...findChildIds(rows, changedRowId),
+                  ]),
+                );
+                return;
+              } else {
+                const excludeRowIds = [changedRowId, ...findChildIds(rows, changedRowId)];
+                onRowsSelect(filter(selectedRowIds, (id) => !includes(excludeRowIds, id)));
+                return;
+              }
+            }
+          }
           onRowsSelect(rowIds);
         }
       }
     },
-    [multiSelect, onRowsSelect, selectedRowIds],
+    [multiSelect, onRowsSelect, rows, selectedRowIds, treeViewEnabled],
   );
 
   useDndMonitor({
@@ -202,11 +235,15 @@ const DataGrid = forwardRef<any, DataGridProps>(function DataGrid(props, ref: an
               onEditingCellsChange={onEditingCellsChange ? onEditingCellsChange : undefined}
             />
           )}
+          {treeViewEnabled && (
+            <TreeDataState expandedRowIds={treeViewExpandedRows} onExpandedRowIdsChange={onTreeViewExpandedRows} />
+          )}
           <SummaryState totalItems={defaultSummary} />
           {!rowReorderingEnabled && <IntegratedSorting columnExtensions={sortingColumns} />}
           <IntegratedFiltering columnExtensions={filteringColumns} />
           {selectionEnabled && <IntegratedSelection />}
           {!rowReorderingEnabled && <IntegratedGrouping columnExtensions={groupingColumns} />}
+          {treeViewEnabled && <CustomTreeData getChildRows={getChildRows} />}
           <IntegratedSummary />
           <VirtualTable
             ref={ref}
@@ -220,7 +257,7 @@ const DataGrid = forwardRef<any, DataGridProps>(function DataGrid(props, ref: an
           {resizingEnabled && <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />}
           {columnReorderingEnabled && <TableColumnReordering defaultOrder={columnDefs.map((c) => c.columnName)} />}
           <TableHeaderRow showSortingControls={!rowReorderingEnabled} />
-          {selectionEnabled && (
+          {selectionEnabled && !treeViewEnabled && (
             <TableSelection
               selectByRowClick={!multiSelect}
               showSelectionColumn={multiSelect}
@@ -230,8 +267,16 @@ const DataGrid = forwardRef<any, DataGridProps>(function DataGrid(props, ref: an
             />
           )}
           {columnFilteringEnabled && <TableFilterRow />}
-          <TableSummaryRow />
+          {treeViewEnabled && (
+            <TableTreeColumn
+              for={treeViewColumn!}
+              showSelectionControls={selectionEnabled}
+              showSelectAll={multiSelect}
+            />
+          )}
+
           {columnGroupingEnabled && !rowReorderingEnabled && <TableGroupRow />}
+          <TableSummaryRow />
           {editingEnabled && <TableInlineCellEditing startEditAction="click" selectTextOnEditStart />}
           {toolbarEnabled && <Toolbar />}
           {searchingEnabled && <SearchPanel />}

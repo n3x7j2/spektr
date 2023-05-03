@@ -14,8 +14,7 @@ const TableRow = memo(function TableRow(props: Table.DataRowProps) {
     ...restProps
   } = props;
 
-  const { dragType, rowReorderingEnabled, selectedRows, setDragHandleProps } =
-    useDataGrid();
+  const { dragType, rowReorderingEnabled, selectedRows, setDragHandleProps } = useDataGrid();
 
   const { setNodeRef: setDroppableNodeRef, isOver } = useDroppable({
     id: rowId!,

@@ -5,4 +5,5 @@
 export type EmployeeStatusUpdateDto = {
   status: string;
   description?: string | null;
+  isActive?: boolean;
 };

@@ -28,5 +28,4 @@ export type EmployeeCreateDto = {
   isRandomPassword?: boolean;
   password?: string | null;
   isActivationEmail?: boolean;
-  isActive?: boolean;
 };

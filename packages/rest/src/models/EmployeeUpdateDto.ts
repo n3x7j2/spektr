@@ -27,6 +27,5 @@ export type EmployeeUpdateDto = {
   positionID?: string;
   employeeTypeID?: string;
   employeeStatusId?: string;
-  isActive?: boolean;
   isActivationEmail?: boolean;
 };

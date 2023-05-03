@@ -1,8 +1,7 @@
+import DragIcon from '@mui/icons-material/DragHandle';
 import { Box, Divider } from '@mui/material';
 import { isEmpty, trim } from 'lodash';
 import React from 'react';
-
-import DragIcon from './icons/DragIcon';
 
 type Props = {
   row: any;
@@ -24,9 +23,7 @@ const TableRowOverlay = (props: Props) => {
         py: 1,
       }}
     >
-      <Box
-        sx={{ width: '40px', display: 'flex', justifyContent: 'center', px: 1 }}
-      >
+      <Box sx={{ width: '40px', display: 'flex', justifyContent: 'center', px: 1 }}>
         <DragIcon />
       </Box>
       {fields.map((field) => {

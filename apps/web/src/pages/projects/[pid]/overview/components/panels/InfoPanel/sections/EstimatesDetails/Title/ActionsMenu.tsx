@@ -36,10 +36,11 @@ const ActionsMenu = () => {
         anchorEl={anchorEl}
         sx={{
           '& .MuiPaper-root': {
+            marginTop: '5px',
             minWidth: 200,
 
             '& .MuiMenuItem-root': {
-              py: 1.5,
+              py: 1,
               fontSize: 13,
               lineHeight: '20px',
               letterSpacing: '0.25px',

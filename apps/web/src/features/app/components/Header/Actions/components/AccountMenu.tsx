@@ -33,7 +33,7 @@ const AccountMenu = () => {
         id="account-menu"
         sx={{
           '& .MuiPaper-root': {
-            marginTop: '15px',
+            marginTop: 0,
             minWidth: 200,
 
             '& .MuiMenuItem-root': {

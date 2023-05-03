@@ -7,4 +7,8 @@ export const Actions = {
   EditPhase: 'eph',
   CreateDirective: 'cd',
   EditDirective: 'ed',
+  CreateLocation: 'cl',
+  EditLocation: 'el',
+  CreateRequest: 'cr',
+  EditRequest: 'er',
 };

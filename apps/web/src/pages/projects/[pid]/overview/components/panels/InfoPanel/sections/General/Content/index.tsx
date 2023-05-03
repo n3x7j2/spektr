@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Grid, Skeleton } from '@mui/material';
 import { Actions, Segments } from '@spektr/common';
-import { first, isEmpty, keys, pickBy } from 'lodash';
+import { first, keys } from 'lodash';
 import Router from 'next/router';
 import { forwardRef, ForwardRefRenderFunction, useEffect, useImperativeHandle, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';

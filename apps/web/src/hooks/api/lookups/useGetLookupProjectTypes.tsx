@@ -4,14 +4,14 @@ import { map } from 'lodash';
 
 import { useRestClient } from '~/hooks/useRestClient';
 
-export const useLookupProjectTypes = () => {
+export const useGetLookupProjectTypes = () => {
   const client = useRestClient();
 
   return useQuery({
     queryKey: [QueryKeys.GetLookupProjectTypes],
     queryFn: async () => {
       const result = await client.projectType.projectTypeGetListDropDownProjectType({});
-      return map(result, (s) => ({ value: s.value || '', text: s.text || '' })) || [];
+      return map(result || [], (s) => ({ value: s.value || '', text: s.text || '' }));
     },
   });
 };

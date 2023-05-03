@@ -28,7 +28,7 @@ id: string,
 }): CancelablePromise<PurchaseOrderTermDto> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/api/purchas-order-terms/{id}',
+      url: '/api/purchase-order-terms/{id}',
       path: {
         'id': id,
       },
@@ -50,7 +50,7 @@ requestBody?: PurchaseOrderTermUpdateDto,
 }): CancelablePromise<PurchaseOrderTermDto> {
     return this.httpRequest.request({
       method: 'PUT',
-      url: '/api/purchas-order-terms/{id}',
+      url: '/api/purchase-order-terms/{id}',
       path: {
         'id': id,
       },
@@ -72,7 +72,7 @@ id: string,
 }): CancelablePromise<any> {
     return this.httpRequest.request({
       method: 'DELETE',
-      url: '/api/purchas-order-terms/{id}',
+      url: '/api/purchase-order-terms/{id}',
       path: {
         'id': id,
       },
@@ -98,7 +98,7 @@ maxResultCount?: number,
 }): CancelablePromise<PagedResultDtoOfPurchaseOrderTermDto> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/api/purchas-order-terms',
+      url: '/api/purchase-order-terms',
       query: {
         'Term': term,
         'Sorting': sorting,
@@ -121,7 +121,7 @@ requestBody?: PurchaseOrderTermCreateDto,
 }): CancelablePromise<PurchaseOrderTermDto> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/api/purchas-order-terms',
+      url: '/api/purchase-order-terms',
       body: requestBody,
       mediaType: 'application/json',
     });
@@ -140,7 +140,7 @@ searchKey?: string,
 }): CancelablePromise<Array<DropDownItemOfGuid>> {
     return this.httpRequest.request({
       method: 'GET',
-      url: '/api/purchas-order-terms/lookups',
+      url: '/api/purchase-order-terms/lookups',
       query: {
         'SearchKey': searchKey,
       },
@@ -160,7 +160,7 @@ requestBody?: Array<PurchaseOrderTermUpsertDto>,
 }): CancelablePromise<Array<PurchaseOrderTermDto>> {
     return this.httpRequest.request({
       method: 'POST',
-      url: '/api/purchas-order-terms/upserts',
+      url: '/api/purchase-order-terms/upserts',
       body: requestBody,
       mediaType: 'application/json',
     });

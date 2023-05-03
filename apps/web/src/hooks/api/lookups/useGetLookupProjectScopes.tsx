@@ -1,5 +1,5 @@
 import { useGetEnumItems } from '../useGetEnumItems';
 
-export const useLookupProjectScopes = () => {
+export const useGetLookupProjectScopes = () => {
   return useGetEnumItems('ProjectScope');
 };

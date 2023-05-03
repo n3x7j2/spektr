@@ -1,4 +1,3 @@
-import { StyledComponent } from '@emotion/styled';
 import {
   ChevronRight as ChevronRightIcon,
   ExpandMore as ExpandMoreIcon,
@@ -17,7 +16,7 @@ import TreeItemProvider from './TreeItemProvider';
 
 type TreeItemProps = MuiTreeItemProps & { level: number };
 
-const StyledTreeItem: StyledComponent<TreeItemProps> = styled(MuiTreeItem)<TreeItemProps>(({ theme, level }) => ({
+const StyledTreeItem = styled(MuiTreeItem)<TreeItemProps>(({ theme, level }) => ({
   [`& .${treeItemClasses.content}`]: {
     minHeight: 40,
     paddingLeft: theme.spacing(level),

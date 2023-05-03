@@ -1,8 +1,10 @@
 import { Box } from '@mui/material';
-import { Segments } from '@spektr/common';
-import { ColumnDef, DataGrid } from '@spektr/data-grid';
+import { QueryParams, Segments } from '@spektr/common';
+import { ColumnDef, DataGrid, VirtualTable } from '@spektr/data-grid';
 import { RowId } from '@spektr/data-grid/dist/externals/dx-grid';
-import { useState } from 'react';
+import { first } from 'lodash';
+import Router from 'next/router';
+import { useEffect, useRef, useState } from 'react';
 
 import BooleanFormatter from '~/components/formatters/BooleanFormatter';
 import { MainComponentProps } from '~/features/app/components';
@@ -51,11 +53,21 @@ const columns: ColumnDef[] = [
 ];
 
 const MainPanel = (props: MainComponentProps) => {
-  const { pid: projectId } = useQueryParams('pid');
-  const { data: project, isLoading: isLoadingProject, isError: isProjectError } = useGetProject(projectId);
-  const { data: shippingLocations = [], isLoading: isLoadingShippingLocations } = useGetShippingLocations(projectId);
-
+  const { pid: projectId, lid: locationId } = useQueryParams(QueryParams.ProjectId, QueryParams.LocationId);
+  const { data: project } = useGetProject(projectId);
+  const { data: shippingLocations = [] } = useGetShippingLocations(projectId);
+  const vtRef = useRef();
   const [selectedRows, setSelectedRows] = useState<RowId[]>([]);
+
+  const handleSelect = (rowIds: RowId[]) => {
+    const selectedRowId = first(rowIds);
+    Router.push(`/projects/${projectId}/locations?lid=${selectedRowId}`);
+  };
+
+  useEffect(() => {
+    setSelectedRows([locationId]);
+    (vtRef.current as any)?.scrollToRow(locationId);
+  }, [vtRef, locationId]);
 
   return (
     <Box sx={{ px: 2, pb: 1.5, bgcolor: 'white' }}>
@@ -65,13 +77,15 @@ const MainPanel = (props: MainComponentProps) => {
         <>
           <PageTitle projectName={project?.projectName} />
           <DataGrid
+            ref={vtRef}
             defaultColumns={columns}
             rows={shippingLocations}
             height="calc(100vh - 238px)"
+            getRowId={(row) => row.id}
             resizingEnabled
             columnReorderingEnabled
             selectedRows={selectedRows}
-            onRowsSelect={setSelectedRows}
+            onRowsSelect={handleSelect}
             searchingEnabled
             exportingEnabled
             fileName="Shipping-Locations.xlsx"

@@ -35,7 +35,7 @@ const defaultColumns: ColumnDef[] = [
     width: 120,
     sortingEnabled: true,
     editingEnabled: true,
-    type: 'sum',
+    summaryType: 'sum',
     align: 'right',
   },
 ];

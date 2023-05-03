@@ -35,4 +35,5 @@ export type BOMDataImportStagingProductDto = {
   checked?: boolean;
   assignedToBOMId?: string | null;
   TitleBlock: string;
+  QuantityPerProduct?: string | null;
 };

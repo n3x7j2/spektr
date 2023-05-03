@@ -1,4 +1,6 @@
 import { Table, VirtualTable } from '@devexpress/dx-react-grid-material-ui';
+import DragIcon from '@mui/icons-material/DragIndicator';
+import DropIcon from '@mui/icons-material/MoveToInbox';
 import { Box } from '@mui/material';
 import { UniqueIdentifier, useDndMonitor } from '@spektr/dnd';
 import { clsx } from 'clsx';
@@ -7,8 +9,6 @@ import React, { useState } from 'react';
 import { AnySchema } from 'yup';
 
 import { useDataGrid } from '../hooks/useDataGrid';
-import DragIcon from './icons/DragIcon';
-import DropIcon from './icons/DropIcon';
 
 type ValidationError = { hasError: boolean; message?: string };
 

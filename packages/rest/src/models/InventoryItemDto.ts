@@ -37,6 +37,8 @@ export type InventoryItemDto = {
   net?: number | null;
   inventoryUOMId?: string | null;
   inventoryUOM?: string | null;
+  isAddToPOAble?: boolean;
+  isService?: boolean;
   inventoryItemConversions?: Array<InventoryItemConversionDto> | null;
   substitutes?: Array<InventoryItemSubstituteInfoDto> | null;
 };

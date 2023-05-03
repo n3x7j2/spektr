@@ -50,12 +50,15 @@ export function ConfirmModal({
     <>
       <DialogContent dividers={dividers}>{children}</DialogContent>
       <DialogActions>
-        <Stack direction="row" justifyContent="space-between" sx={{ width: '100%', px: 2, pb: 1 }} {...groupProps}>
+        <Stack
+          direction="row"
+          sx={{ width: '100%', justifyContent: 'space-between', px: 2, pb: 1, mt: 3 }}
+          {...groupProps}
+        >
           <Button
             variant="contained"
             size="large"
             disableElevation
-            disableRipple
             sx={{
               backgroundColor: '#f1f3f4',
               color: '#5e6366',
@@ -75,7 +78,6 @@ export function ConfirmModal({
             variant="contained"
             size="large"
             disableElevation
-            disableRipple
             sx={{ minWidth: '190px', ml: 2 }}
             {...confirmProps}
             onClick={handleConfirm}

@@ -15,7 +15,7 @@ const defaultColumns: ColumnDef[] = [
     title: 'Estimated Qty',
     width: 125,
     sortingEnabled: true,
-    type: 'sum',
+    summaryType: 'sum',
     align: 'right',
   },
   {
@@ -23,7 +23,7 @@ const defaultColumns: ColumnDef[] = [
     title: 'Estimated Net SqFt',
     width: 160,
     sortingEnabled: true,
-    type: 'sum',
+    summaryType: 'sum',
     align: 'right',
   },
   {
@@ -31,7 +31,7 @@ const defaultColumns: ColumnDef[] = [
     title: 'Main Scope',
     width: 120,
     sortingEnabled: true,
-    type: 'sum',
+    summaryType: 'sum',
     align: 'right',
   },
   {
@@ -39,7 +39,7 @@ const defaultColumns: ColumnDef[] = [
     title: 'Actual',
     width: 80,
     sortingEnabled: true,
-    type: 'sum',
+    summaryType: 'sum',
     align: 'right',
   },
 ];

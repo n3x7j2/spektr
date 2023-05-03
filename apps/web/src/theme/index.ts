@@ -1,6 +1,5 @@
 import { createTheme } from '@mui/material/styles';
-import { Roboto } from '@next/font/google';
-import { rem } from '@spektr/common';
+import { Roboto } from 'next/font/google';
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {

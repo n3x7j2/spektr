@@ -2,47 +2,46 @@
   "name": "spektr",
   "version": "1.0.0",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
     "prepare": "husky install",
     "build": "turbo run build",
     "build:packages": "turbo run build --filter=./packages/**",
-    "dev": "pnpm build:packages && turbo run dev --filter=web",
+    "dev:packages": "turbo run dev --filter=./packages/**",
+    "dev": "turbo run dev --filter=web",
     "lint": "turbo run lint -- --fix",
     "format:check": "prettier --check packages/**/src apps/**/src",
     "format:write": "prettier --write packages/**/src apps/**/src",
-    "clean": "pnpm -r --parallel exec rimraf dist .turbo *.log"
+    "clean": "pnpm -r --parallel exec rimraf --glob dist .turbo *.log"
   },
   "dependencies": {
-    "@types/node": "18.11.15",
-    "@types/react": "18.0.26",
-    "@types/react-dom": "18.0.9",
-    "@typescript-eslint/eslint-plugin": "5.46.1",
-    "@typescript-eslint/parser": "5.46.1",
-    "eslint": "8.29.0",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-config-react": "1.1.7",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jsx-a11y": "6.6.1",
-    "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-react": "7.31.11",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "eslint-plugin-simple-import-sort": "8.0.0",
-    "husky": "8.0.2",
-    "lint-staged": "13.1.0",
-    "npm-run-all": "4.1.5",
-    "prettier": "2.8.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "rimraf": "3.0.2",
-    "tsup": "6.5.0",
-    "tsx": "3.12.1",
-    "turbo": "1.6.3",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.16.3",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.1",
+    "@typescript-eslint/eslint-plugin": "5.59.1",
+    "@typescript-eslint/parser": "5.59.1",
+    "eslint": "8.39.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-config-react": "1.1.7",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.2",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.8.8",
+    "rimraf": "5.0.0",
+    "tsup": "6.7.0",
+    "tsx": "3.12.7",
+    "turbo": "1.9.3",
     "typescript": "4.9.5",
-    "unbuild": "1.0.2"
+    "unbuild": "1.2.1"
   },
   "pnpm": {
     "overrides": {
@@ -52,6 +51,5 @@
   },
   "engines": {
     "node": ">=16.0.0"
-  },
-  "packageManager": "pnpm@8.2.0"
+  }
 }

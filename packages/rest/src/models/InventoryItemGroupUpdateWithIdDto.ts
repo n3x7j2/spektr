@@ -8,7 +8,7 @@ export type InventoryItemGroupUpdateWithIdDto = {
   id?: string;
   inventoryGroupDynamicFields: string;
   inventorySubCategoryId?: string;
-  inventoryUOMId?: string;
-  batches?: Array<string> | null;
+  inventoryUOMId?: string | null;
   status?: InventoryItemGroupStatus;
+  batches?: Array<string> | null;
 };

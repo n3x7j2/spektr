@@ -22,24 +22,22 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/lodash": "4.14.191"
+    "@types/lodash": "4.14.194"
   },
   "dependencies": {
-    "@mui/lab": "^5.0.0-alpha.118",
+    "@mui/lab": "5.0.0-alpha.118",
     "@spektr/common": "workspace:*",
     "@spektr/dnd": "workspace:*",
-    "clsx": "1.2.1",
-    "lodash": "4.17.21",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-virtuoso": "4.1.0"
+    "react-virtuoso": "4.3.5"
   },
   "peerDependencies": {
-    "@emotion/styled": "^11.10.5",
-    "@mui/icons-material": "^5.11.0",
-    "@mui/material": "^5.11.0",
-    "@mui/system": "^5.11.0",
-    "react": "^17.0.2 || ^18.0.0",
-    "react-dom": "^17.0.2 || ^18.0.0"
+    "@emotion/styled": "^11.10.8",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.2",
+    "@mui/system": "^5.12.1",
+    "clsx": "^1.2.1",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

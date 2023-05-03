@@ -2,6 +2,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { ProjectSystemComponentDto } from './ProjectSystemComponentDto';
+
 export type ProjectSystemDto = {
   id?: string;
   projectId?: string;
@@ -16,4 +18,5 @@ export type ProjectSystemDto = {
   fabricationLeadTimeUOMID?: string | null;
   creationTime?: string;
   lastModificationTime?: string | null;
+  projectSystemComponents?: Array<ProjectSystemComponentDto> | null;
 };
